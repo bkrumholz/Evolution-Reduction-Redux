@@ -23,7 +23,7 @@ script.on_event(defines.events.on_entity_died, function(event)
 		end
 		
 		if reduction_factor > 0.0 then
-			if DEBUG then print("Reduction = "..reduction_factor.." BASE = "..BASE_REDUCTION_FACTOR.." Pollution = "..game.map_settings.enemy_evolution.pollution_factor) end
+			if DEBUG or (settings.global["Evolution-Reduction-Debug-Mode"].value) then print("Reduction = "..reduction_factor.." BASE = "..BASE_REDUCTION_FACTOR.." Pollution = "..game.map_settings.enemy_evolution.pollution_factor) end
 			if current_evolution < 1.0 then
 				altered_evolution = (current_evolution - (reduction_factor * (1 - current_evolution)))
 				if altered_evolution > MINIMUM_EVOLUTION_FACTOR then
@@ -45,7 +45,7 @@ script.on_event(defines.events.on_entity_died, function(event)
 	end
 end)
 
-if DEBUG then
+if DEBUG or (settings.global["Evolution-Reduction-Debug-Mode"].value) then
 	script.on_event(defines.events.on_tick, function(event)	
 		if DISPLAY_FACTORS then
 			print("Evolution Factors Reset")

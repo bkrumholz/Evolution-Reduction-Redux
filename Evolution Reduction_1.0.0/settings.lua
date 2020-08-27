@@ -28,4 +28,10 @@ data:extend{
         setting_type = "runtime-global",
         default_value = true
     },
+	{
+        type = "bool-setting",
+        name = "Evolution-Reduction-Debug-Mode",
+        setting_type = "runtime-global",
+        default_value = false
+    },
 }
